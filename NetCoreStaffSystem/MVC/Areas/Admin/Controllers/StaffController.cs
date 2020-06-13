@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.Abstract;
+using DAL.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -33,24 +34,30 @@ namespace MVC.Areas.Admin.Controllers
         // GET: Staff/Create
         public ActionResult Create()
         {
-            ViewBag.MainCategories = staffService.GetActiveStaff().Select(x => new SelectListItem() { Text = x.FirstName, Value = x.ID.ToString() });
+            ViewBag.MainCategories = staffService.GetActiveStaff().Select(x => new SelectListItem() { Text = x.IdentificationNo, Value = x.ID.ToString() });
             return View();
         }
 
         // POST: Staff/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Staff model)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    staffService.Add(model);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

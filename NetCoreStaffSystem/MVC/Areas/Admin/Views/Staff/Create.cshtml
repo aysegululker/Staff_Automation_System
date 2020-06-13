@@ -18,16 +18,40 @@
                         <form role="form" asp-action="Create" asp-controller="Category" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Personel Adı</label>
-                                    <input asp-for="FirstName" type="text" class="form-control" placeholder="Personel adı girin">
+                                    <label>Kimlik Numarası</label>
+                                    <input asp-for="IdentificationNo" type="text" class="form-control" placeholder="Personel soyadı girin">
                                 </div>
                                 <div class="form-group">
                                     <label>Personel Adı</label>
                                     <input asp-for="FirstName" type="text" class="form-control" placeholder="Personel adı girin">
                                 </div>
                                 <div class="form-group">
-                                    <label>Kategori Açıklama</label>
-                                    <input asp-for="Description" type="text" class="form-control" placeholder="Kategori Açıklama Girin">
+                                    <label>Personel Soyadı</label>
+                                    <input asp-for="LastName" type="text" class="form-control" placeholder="Personel soyadı girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Doğum Tarihi</label>
+                                    <input asp-for="Birthday" type="text" class="form-control" placeholder="Doğum tarihi girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefon Numarası</label>
+                                    <input asp-for="CellPhone" type="text" class="form-control" placeholder="Telefon numarası girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input asp-for="Email" type="text" class="form-control" placeholder="Email girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Adres Bilgisi</label>
+                                    <input asp-for="Address" type="text" class="form-control" placeholder="Adres girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>İşe Giriş Tarihi</label>
+                                    <input asp-for="HireDate" type="text" class="form-control" placeholder="İşe başlama zamanını girin">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ünvan Bilgisi</label>
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="Ünvanı girin">
                                 </div>
                             </div>
                             <!-- /.card-body -->
