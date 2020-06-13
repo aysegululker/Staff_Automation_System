@@ -1,0 +1,60 @@
+﻿@model List<DAL.Entity.Staff>
+@{
+    ViewData["Title"] = "Çalışanların Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <a asp-action="Create" asp-controller="Staff" class="btn btn-success float-right">Yeni Çalışan Ekle</a>
+    </div>
+    <div class="card-body">
+        <table id="stafftable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>TC Kimlik No</th>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Doğum Tarihi</th>
+                    <th>Telefon</th>
+                    <th>Email</th>
+                    <th>Adres</th>
+                    <th>İşe Giriş Tarihi</th>
+                    <th>Ünvan</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var staff in Model)
+                {
+                <tr>
+                    <td>@staff.IdentificationNo</td>
+                    <td>@staff.FirstName</td>
+                    <td>@staff.LastName</td>
+                    <td>@staff.Birthday</td>
+                    <td>@staff.CellPhone</td>
+                    <td>@staff.Email</td>
+                    <td>@staff.Address</td>
+                    <td>@staff.HireDate</td>
+                    <td>@staff.Title</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Staff" asp-route-id="@staff.ID" class="btn btn-sm btn-warning">Düzenle</a>
+                        <a asp-action="Delete" asp-controller="Staff" asp-route-id="@staff.ID" class="btn btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#stafftable').DataTable();
+        });
+    </script>
+
+
+}
+
