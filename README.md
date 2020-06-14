@@ -1,1 +1,1 @@
-# School_Automation_System
+# Staff_Automation_System
